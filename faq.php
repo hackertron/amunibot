@@ -31,9 +31,9 @@ function get_ans($query)
 	}
 	else
 	{
-		$ans = pg_fetch_assoc($result);
+		$ans = pg_fetch_row($result);
 		echo "$ans";
-		return $result;
+		return $ans[0];
 	}
 }
 ?>
