@@ -23,6 +23,7 @@ print "\n";
 */
 function get_ans($query)
 {
+	$pg_conn = pg_connect(pg_connection_string_from_database_url());
 	$result = pg_query($pg_conn,"SELECT ans FROM faq where ques LIKE '%$query%'");
 	if (!$result)
 	{
