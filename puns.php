@@ -22,7 +22,7 @@ $puns = array("what kind of shorts does cloud wear : ThunderWear",
 
 	$i = rand(0,sizeof($puns));
 	echo "$puns[$i]";
-	//return $puns[$i]; 
+	return $puns[$i]; 
 }
 
 get_puns();
