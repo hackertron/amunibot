@@ -19,6 +19,7 @@
 */
 require 'vendor/autoload.php';
 require 'faq.php';
+require_once 'puns.php'
 
 $client = new Zelenin\Telegram\Bot\Api('277966162:AAE4T5DW2Grn0cXDvkW5LDqAkG9N6IRLmSE'); // Set your access token
 $url = ''; // URL RSS feed
@@ -47,19 +48,11 @@ try {
     }
     else if($update->message->text == '/puns')
     {
-    		/*Feed::$cacheDir 	= __DIR__ . '/cache';
-			Feed::$cacheExpire 	= '5 hours';
-			$rss 		= Feed::loadRss($url);
-			$items 		= $rss->item;
-			$lastitem 	= $items[0];
-			$lastlink 	= $lastitem->link;
-			$lasttitle 	= $lastitem->title;
-			$message = $lasttitle . " \n ". $lastlink;
-            */
+    		$pun = get_puns();
 			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
 			$response = $client->sendMessage([
 					'chat_id' => $update->message->chat->id,
-					'text' => "what kind of shorts does cloud wear : ThunderWear"
+					'text' => "$pun"
 				]);
 
     }
