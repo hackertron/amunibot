@@ -19,7 +19,7 @@
 */
 require 'vendor/autoload.php';
 require 'faq.php';
-require_once 'puns.php'
+require 'puns.php'
 
 $client = new Zelenin\Telegram\Bot\Api('277966162:AAE4T5DW2Grn0cXDvkW5LDqAkG9N6IRLmSE'); // Set your access token
 $url = ''; // URL RSS feed
@@ -52,7 +52,7 @@ try {
 			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
 			$response = $client->sendMessage([
 					'chat_id' => $update->message->chat->id,
-					'text' => "$pun"
+					'text' => $pun
 				]);
 
     }
