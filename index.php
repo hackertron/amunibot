@@ -18,6 +18,7 @@
 *
 */
 require 'vendor/autoload.php';
+require 'faq.php';
 
 $client = new Zelenin\Telegram\Bot\Api('277966162:AAE4T5DW2Grn0cXDvkW5LDqAkG9N6IRLmSE'); // Set your access token
 $url = ''; // URL RSS feed
@@ -39,7 +40,7 @@ try {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
     		'chat_id' => $update->message->chat->id,
-    		'text' => "List of commands :\n /author -> bot author info \n /puns -> Get the puns 
+    		'text' => "List of commands :\n /author -> bot author info \n /puns -> Get the puns \n /faq -> get ans for FAQ \n 
     		/help -> Shows list of available commands"
     		]);
 
@@ -61,6 +62,16 @@ try {
 					'text' => "what kind of shorts does cloud wear : ThunderWear"
 				]);
 
+    }
+    else if(preg_match('/^\/faq .*/', $update->message->text))
+    {
+    	$ans = get_ans($update->message->text);
+
+    	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+			$response = $client->sendMessage([
+					'chat_id' => $update->message->chat->id,
+					'text' => "$ans"
+				]);
     }
     else
     {
