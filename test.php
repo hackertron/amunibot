@@ -19,7 +19,7 @@ function get_ans($query)
 		#print_r($ans);
 		while ($ans = pg_fetch_row($result))
 		 { 
-		 	print("- $ans[0]\n");
+		 	print("$ans[0]\n");
 		 }
 		
 	}
