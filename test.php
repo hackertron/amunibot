@@ -25,7 +25,7 @@ function get_ans($query)
 	}
 }
 
-get_ans("/faq dress code");
+get_ans("dress code");
 
 ?>
 
