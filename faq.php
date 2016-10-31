@@ -31,9 +31,13 @@ function get_ans($query)
 	}
 	else
 	{
-		$ans = pg_fetch_row($result);
-		echo "$ans";
-		return $ans[0];
+		$ans = array();
+		while ($value = pg_fetch_row($result))
+		 { 
+		 	print("- $value[0]\n");
+		 	array_push($ans, $value[0]);
+		 }
+		 return $ans;
 	}
 }
 ?>
