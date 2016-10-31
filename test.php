@@ -16,7 +16,7 @@ function get_ans($query)
 	else
 	{
 		$ans = pg_fetch_assoc($result);
-		echo $ans["ans"];
+		echo $ans["ques"];
 		#while ($ans = pg_fetch_row($result))
 		 #{ 
 		 #	print("$ans[0]\n");
