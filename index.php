@@ -58,7 +58,7 @@ try {
     }
     else if(preg_match('/^\/faq .*/', $update->message->text))
     {
-        $query = str_replace('/^\/faq/', '', $update->message->text);
+        $query = str_replace('/faq','', $update->message->text);
     	$ans = get_ans($query);
 
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
