@@ -15,8 +15,12 @@ function get_ans($query)
 	}
 	else
 	{
-		$ans = pg_fetch_row($result);
-		print_r($ans);
+		#$ans = pg_fetch_row($result);
+		#print_r($ans);
+		while ($ans = pg_fetch_row($result))
+		 { 
+		 	print("- $row[0]\n");
+		 }
 		
 	}
 }
