@@ -16,7 +16,7 @@ function get_ans($query)
 	else
 	{
 		$ans = pg_fetch_row($result);
-		echo "$ans";
+		print_r($ans);
 		
 	}
 }
