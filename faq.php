@@ -41,7 +41,7 @@ function get_ans($query)
 	else
 	{
 		$ans = pg_fetch_assoc($result);
-		echo $ans["ans"];
+		
 		return $ans["ans"];
 
 	}
