@@ -20,6 +20,15 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
 
+
+$ans = array();
+		while ($value = pg_fetch_row($result))
+		 { 
+		 	print("- $value[0]\n");
+		 	array_push($ans, $value[0]);
+		 }
+		 return $ans;
+
 */
 function get_ans($query)
 {
@@ -31,13 +40,9 @@ function get_ans($query)
 	}
 	else
 	{
-		$ans = array();
-		while ($value = pg_fetch_row($result))
-		 { 
-		 	print("- $value[0]\n");
-		 	array_push($ans, $value[0]);
-		 }
-		 return $ans;
+		$ans = pg_fetch_assoc($result);
+		return $ans["ans"];
+
 	}
 }
 ?>
