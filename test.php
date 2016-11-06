@@ -22,6 +22,7 @@ function get_ans($query)
 		 #	print("$ans[0]\n");
 		 #}
 		
+		
 	}
 }
 
